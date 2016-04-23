@@ -1,0 +1,28 @@
+#Posicao_da_area_central_do_tabuleiro_(fantasmas)
+F 270 235 285 310
+#Posicao_das_pilulas.Podem_ser_mais_de_4
+I 70 31
+I 70 508
+I 425 31
+I 425 508
+#Configuracao_das_esquinas
+L 31 
+		C31 	C127 		C240 | 	C300 		C414 C508 
+L 107
+		^C31 	C127 	C184	C240 	C300 	C357 	C414 ^C508 
+L 165
+		C31 	C127 | 	C184 -	C240 |- C300 	C357 |	C414 C508 
+L 222      
+				-C184	<^PC240  <XC270	^< C300 < 	-C357      
+L 280
+	C30 <		C127  <^	C184 	   	|^	C357 < C414  < C510    
+L 337
+	     		 ^	C184-< C240 -<	C300  	<^C357 
+L 395
+		-C31 	C127 ^	C184	-C240 -|	C300 ^	C357 	C414 -C508 
+L 453
+		^C31 C69 |C127 -  C184	PC240 	C300 - 	C357 	C414| C472 ^C508 
+L 510
+		-C31 C 69 C 127 |C184	-C 240 |- C 300 	C357| 	C414 C472-	C508 
+L 568
+		C31 			C240	C300				C508 
