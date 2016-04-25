@@ -17,7 +17,6 @@ private:
 	static LifeController * instance;
 	Pacman * pacman;
 	Position * pos;
-	Text * title;
 	vector<BonusLife*> lifes;
 	void CreateLifes();
 	

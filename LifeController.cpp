@@ -6,8 +6,6 @@ LifeController::LifeController()
 {
 	pacman = 0;
 	pos = new Position(LIFE_DISPLAY_POS_X, LIFE_DISPLAY_POS_Y);
-
-	title = new Text("Lifes", pos->X(), pos->Y(), new Color(250, 25, 124));
 }
 
 LifeController* LifeController::Instance()
@@ -74,8 +72,6 @@ BonusLife* LifeController::CreateLife(int x)
 
 void LifeController::Draw()
 {
-	title->Draw();
-	
 	vector<BonusLife*>::iterator iterador = lifes.begin();
 
 	for (; iterador < lifes.end(); iterador++)
