@@ -1,1 +1,0 @@
-#include "InteligenciaEsperto.h"

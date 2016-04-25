@@ -1,6 +1,3 @@
-/*
-Classe singleton que adapta a biblioteca grafica Allegro.
-*/
 #ifndef ALLEGRO_H
 #include <iostream>
 #include <allegro.h>
@@ -8,20 +5,18 @@ Classe singleton que adapta a biblioteca grafica Allegro.
 
 class Allegro
 {
-	private:
-		Allegro() {}
-		static Allegro* instancia;
-		int largura, altura;
+private:
+	Allegro() {}
+	static Allegro* instance;
+	int width, height;
 
-	public:
-		void Inicializa(int largura, int altura);
-		void Finaliza();
-		static Allegro* Instancia();
-		int Largura() { return largura; }
-		int Altura() { return altura; }
-		
-		// Suspende a thread atual por 'tempo' ms.
-		void Esperar(int tempo);
+public:
+	void Initialize(int width, int height);
+	void Finalize();
+	static Allegro* Instance();
+	int Width() { return width; }
+	int Height() { return height; }
+	void Wait(int time);
 };
 
 #endif

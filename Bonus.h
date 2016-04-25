@@ -1,21 +1,21 @@
 #ifndef BONUS_H
-
-#include "IObservador.h"
-#include "ElementoRepresentavel.h"
-#include "ControladorColisoes.h"
 #define BONUS_H
 
-class Bonus : public ElementoRepresentavel, public IObservador
+#include "IObserver.h"
+#include "DrawingElement.h"
+#include "CollisionDetection.h"
+
+class Bonus : public DrawingElement, public IObserver
 {
-	public:
-		Bonus() : ElementoRepresentavel() { Inicializar(); }
-		void Posicionar();
-		int Tempo_aparicao();
-		int Tempo_escondido();
-		void Atualiza(int acao) {}		// Observacao
-		virtual bool Comivel_pelo_pacman() { return true; }
-	protected:
-		void Inicializar();
+public:
+	Bonus() : DrawingElement() { Initilize(); }
+	void Place();
+	int GetVisibleTime();
+	int GetHiddenTime();
+	void Refresh(int action) {}	
+	virtual bool PacmanCanEat() { return true; }
+protected:
+	void Initilize();
 };
 
 #endif

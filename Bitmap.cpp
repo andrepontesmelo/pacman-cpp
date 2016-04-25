@@ -1,121 +1,101 @@
 #include "Bitmap.h"
 
-// Todas as construtoras chamam este método.
-void Bitmap::Inicializa(BITMAP * bitmap, Posicao * pos)
+void Bitmap::Initialize(BITMAP * bitmap, Position * pos)
 {
 
 #ifdef DEBUG
 	if (bitmap == 0)
-		throw new ExcessaoArgumentoNulo("bitmap", "Construtora de Bitmap");
+		throw new NullArgumentException("bitmap", "Bitmap Constructor");
 
 	if (pos == 0)
-		throw new ExcessaoReferenciaNula("posicao", "Bitmap::Bitmap(...)");
+		throw new NullReferenceException("position", "Bitmap::Bitmap(...)");
 #endif		
 
 	this->bmp = bitmap;
 
-	this->posicao = pos;
+	this->position = pos;
 
-	this->largura = bitmap->w;
-	this->altura = bitmap->h;
+	this->width = bitmap->w;
+	this->height = bitmap->h;
 
-	centralizado = false;
-	instancia_tela = Tela::Instancia();
+	centered = false;
+	instance_screen = Screen::Instance();
 }
 
 
-Bitmap::Bitmap(string arquivo, int x, int y)
+Bitmap::Bitmap(string file, int x, int y)
 {
-	BITMAP * bitmap = load_bmp(arquivo.c_str(), NULL);
+	BITMAP * bitmap = load_bmp(file.c_str(), NULL);
 #ifdef DEBUG
 	if (bitmap == NULL)
-		throw new ExcessaoArquivoNaoEncontrado(arquivo);
+		throw new FileNotFoundException(file);
 #endif
-	Inicializa(bitmap, new Posicao(x, y));
+	Initialize(bitmap, new Position(x, y));
 }
 
-
-// Cria bitmap em branco
-Bitmap::Bitmap(int largura, int altura, int x, int y)
+Bitmap::Bitmap(int width, int height, int x, int y)
 {	
-	bmp = create_bitmap(largura, altura);
-	Limpar();
+	bmp = create_bitmap(width, height);
+	Clean();
 
-	Inicializa(bmp, new Posicao(x, y));
+	Initialize(bmp, new Position(x, y));
 }
 
 Bitmap::~Bitmap()
 {
 	destroy_bitmap(bmp);
 }
-/*
-int Bitmap::X()
+
+
+void Bitmap::SetPosition(int x, int y)
 {
 #ifdef DEBUG
-	if (posicao == 0)
-		throw new ExcessaoReferenciaNula("posicao", "Bitmap::X()");
-#endif
-	return posicao->X();
-}
-
-int Bitmap::Y()
-{
-#ifdef DEBUG
-	if (posicao == 0)
-		throw new ExcessaoReferenciaNula("posicao", "bitmap::y()");
-#endif
-	return posicao->Y();
-}
-*/
-void Bitmap::Set_pos(int x, int y)
-{
-#ifdef DEBUG
-	if (posicao == 0)
-		throw new ExcessaoReferenciaNula("posicao", "bitmap::Set_pos()");
+	if (position == 0)
+		throw new NullReferenceException("position", "bitmap::SetPosition()");
 #endif
 
-	posicao->Set_x(x);
-	posicao->Set_y(y);
+	position->SetX(x);
+	position->SetY(y);
 
-	IDesenhavel::Set_pos(x, y);
+	IDrawable::SetPosition(x, y);
 }
 
-void Bitmap::Limpar()
+void Bitmap::Clean()
 {
 	clear_bitmap(bmp);
 }
 
 
-void Bitmap::Desenhar_circulo_preenchido(int x, int y, int raio, Cor * cor)
+void Bitmap::DrawFilledCircle(int x, int y, int radius, Color * color)
 {
 #ifdef DEBUG
-	if (cor == 0)
-		throw new ExcessaoArgumentoNulo("cor", "Bitmap::Desenhar_circulo_preenchido(...)");
+	if (color == 0)
+		throw new NullArgumentException("color", "Bitmap::DrawFilledCircle(...)");
 #endif
-	circlefill(bmp, x, y, raio, makecol(cor->R(), cor->G(), cor->B()));
+	circlefill(bmp, x, y, radius, makecol(color->R(), color->G(), color->B()));
 	
-		
+	
 }
 
-void Bitmap::Desenhar_linha(int x, int y, int x1, int y1, Cor * cor)
+void Bitmap::DrawLine(int x, int y, int x1, int y1, Color * color)
 {
 #ifdef DEBUG
-	if (cor == 0)
-		throw new ExcessaoArgumentoNulo("cor", "Bitmap::Desenhar_linha(...)");
+	if (color == 0)
+		throw new NullArgumentException("color", "Bitmap::DrawLine(...)");
 #endif
-	line(bmp, x, y, x1, y1, makecol(cor->R(), cor->G(), cor->B()));
+	line(bmp, x, y, x1, y1, makecol(color->R(), color->G(), color->B()));
 
 }
 
-void Bitmap::Desenhar()
+void Bitmap::Draw()
 {
 #ifdef DEBUG
-	if (posicao == 0)
-		throw new ExcessaoReferenciaNula("posicao", "Bitmap::Desenhar()");
+	if (position == 0)
+		throw new NullReferenceException("position", "Bitmap::Draw()");
 #endif
 
-	if (centralizado)
-		instancia_tela->Desenhar(bmp, posicao->X() - (largura / 2), posicao->Y() - (altura / 2));
+	if (centered)
+		instance_screen->Draw(bmp, position->X() - (width / 2), position->Y() - (height / 2));
 	else
-		instancia_tela->Desenhar(bmp, posicao->X(), posicao->Y());
+		instance_screen->Draw(bmp, position->X(), position->Y());
 }

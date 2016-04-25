@@ -2,37 +2,37 @@
 class Pacman;
 #define PACMAN_H
 
-#include "ElementoAmbulante.h"
+#include "WalkingElement.h"
 #include "Bitmap.h"
-#include "Teclado.h"
-#include "DirecaoFixa.h"
-#include "IDesenhavel.h"
-#include "Reconstrucao.h"
-#include "IObservador.h"
+#include "Keyboard.h"
+#include "FixedDirection.h"
+#include "IDrawable.h"
+#include "Reconstruction.h"
+#include "IObserver.h"
 
-class Pacman : public ElementoAmbulante, public IObservador
+class Pacman : public WalkingElement, public IObserver
 {
 	private:
-		int num_vidas;
-		DirecaoFixa * proxima_direcao;
-		// 4 IDesenhaveis, um para cada lado.
-		IDesenhavel* desenhos_girados[4];
-		void Abrir_desenhos();
-		void Inicializar();
+		int lifes;
+		FixedDirection * next_direction;
+
+		IDrawable* flipped_drawings[4];
+		void LoadBitmaps();
+		void Initilize();
 
 	protected:
-		virtual DirecaoFixa* Proxima_direcao() { return proxima_direcao; }
-		virtual void Girar();
-		virtual int Periodo() { return PACMAN_PERIODO; }
+		virtual FixedDirection* NextDirection() { return next_direction; }
+		virtual void Flip();
+		virtual int Interval() { return PACMAN_INTERVAL; }
 
 	public:
 		Pacman();
 		~Pacman() {};
-		void virtual Atualizar_posicao(int tempo_passado_Ms);
-		void virtual Desenhar();
-		int Num_vidas() { return num_vidas; }
-		void virtual Foi_comido();
-		void virtual Atualiza(int acao);
+		void virtual UpdatePosition(int elapsed_ms);
+		void virtual Draw();
+		int LifeQty() { return lifes; }
+		void virtual WasEaten();
+		void virtual Refresh(int action);
 
 };
 #endif

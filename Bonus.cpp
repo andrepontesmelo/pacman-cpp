@@ -1,8 +1,6 @@
 #include "Bonus.h"
 
-void Bonus::Inicializar()
+void Bonus::Initilize()
 {
-	// Registra si mesmo no controlador de colisoes:
-	ControladorColisoes::Instancia()->Adicionar(this);
+	CollisionDetection::Instance()->Add(this);
 }
-
