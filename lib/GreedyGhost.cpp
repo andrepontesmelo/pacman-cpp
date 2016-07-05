@@ -7,9 +7,9 @@ string GreedyGhost::GetAlternatedName()
 	ghosts_created++;
 
 	if (ghosts_created%2)
-		return "img/g_red.bmp";
+		return "../img/g_red.bmp";
 	else 
-		return "img/g_blue.bmp";
+		return "../img/g_blue.bmp";
 }
 
 GreedyGhost::GreedyGhost(int jail_time, Position * pos_pacman) : Ghost(jail_time)

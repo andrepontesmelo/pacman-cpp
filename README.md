@@ -13,6 +13,7 @@ sudo apt-get install build-essential liballegro4-dev clang -y
 # compile & run
 
 ```
+cd lib
 make
 ./pacman
 ```

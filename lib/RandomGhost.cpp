@@ -7,9 +7,9 @@ string RandomGhost::GetAlternatedName()
 	ghosts_created++;
 
 	if (ghosts_created%2)
-		return "img/g_orange.bmp";
+		return "../img/g_orange.bmp";
 	else 
-		return "img/g_beige.bmp";
+		return "../img/g_beige.bmp";
 }
 
 RandomGhost::RandomGhost(int jail_time) : Ghost(jail_time)

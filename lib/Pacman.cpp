@@ -46,7 +46,7 @@ void Pacman::LoadBitmaps()
 		for (int x = 0; x <= 4; x++)
 		{
 			filename.str("");
-			filename << "img/pacman" << x << "_" << short_name_direction << ".bmp";
+			filename << "../img/pacman" << x << "_" << short_name_direction << ".bmp";
 
 			ani->Add_bitmap(new Bitmap(filename.str(), initial_position->X(), initial_position->Y()));
 		}
@@ -54,7 +54,7 @@ void Pacman::LoadBitmaps()
 		for (int x = 3; x >= 1; x--)
 		{
 			filename.str("");
-			filename << "img/pacman" << x << "_" << short_name_direction << ".bmp";
+			filename << "../img/pacman" << x << "_" << short_name_direction << ".bmp";
 
 			ani->Add_bitmap(new Bitmap(filename.str(), initial_position->X(), initial_position->Y()));
 		}

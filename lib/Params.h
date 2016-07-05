@@ -6,7 +6,7 @@
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
 
-#define MAZE_BITMAP "img/maze.bmp"
+#define MAZE_BITMAP "../img/maze.bmp"
 #define MAZE_FILE "maze"
 	
 #define FOOD_DISTANCE 32

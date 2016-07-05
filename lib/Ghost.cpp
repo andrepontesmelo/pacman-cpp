@@ -49,16 +49,16 @@ void Ghost::LoadBitmaps()
 
 	Animation * blinking_animation;
 	blinking_animation = new Animation(GHOST_BLINKING_INTERVAL);
-	blinking_animation->Add_bitmap(new Bitmap("img/ghost_run_away.bmp", initial_position->X()));
-	blinking_animation->Add_bitmap(new Bitmap("img/ghost_run_away_b.bmp", initial_position->X()));
+	blinking_animation->Add_bitmap(new Bitmap("../img/ghost_run_away.bmp", initial_position->X()));
+	blinking_animation->Add_bitmap(new Bitmap("../img/ghost_run_away_b.bmp", initial_position->X()));
 	blinking_animation->SetCentered(true);
 	
 	bitmap_blink = blinking_animation;
 	
-	bitmap_pill_efect = new Bitmap("img/ghost_run_away.bmp", initial_position->X(), initial_position->Y());
+	bitmap_pill_efect = new Bitmap("../img/ghost_run_away.bmp", initial_position->X(), initial_position->Y());
 	bitmap_pill_efect->SetCentered(true);
 
-	bitmap_eaten = new Bitmap("img/eyes.bmp", initial_position->X(), initial_position->Y());
+	bitmap_eaten = new Bitmap("../img/eyes.bmp", initial_position->X(), initial_position->Y());
 	bitmap_eaten->SetCentered(true);
 
 	pill_effect = false;
