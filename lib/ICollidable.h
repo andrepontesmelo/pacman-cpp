@@ -5,9 +5,11 @@
 class ICollidable : public IDrawable
 {
 public:
-	bool virtual PacmanCanEat() = 0;
-	void virtual WasEaten() = 0;
-	void virtual AtePacman() {}
-	virtual ~ICollidable() {}
+bool virtual PacmanCanEat() = 0;
+void virtual WasEaten() = 0;
+void virtual AtePacman() {
+}
+virtual ~ICollidable() {
+}
 };
 #endif

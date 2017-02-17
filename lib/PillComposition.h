@@ -5,24 +5,26 @@ class PillComposition;
 #include <vector>
 #include "Pill.h"
 #include "Cronometer.h"
-using std::vector; 
+using std::vector;
 
 class PillComposition
 {
-	public:
-	
-		void Add(Pill *pill);
-		void Draw();
-		void Set_ghosts (IGhost * ghost);
-		static PillComposition* Instance();
-		
-		void Reset();
+public:
 
-	private:
-		vector<Pill*> pills;
-		PillComposition() { ghosts = 0; }	
-		IGhost * ghosts;
-		static PillComposition* instance;
+void Add(Pill *pill);
+void Draw();
+void Set_ghosts (IGhost * ghost);
+static PillComposition* Instance();
+
+void Reset();
+
+private:
+vector<Pill*> pills;
+PillComposition() {
+								ghosts = 0;
+}
+IGhost * ghosts;
+static PillComposition* instance;
 };
 
 #endif

@@ -5,12 +5,12 @@
 
 class AlarmClock : public Subject
 {
-	public:
-		void Verify();
-		AlarmClock();
+public:
+void Verify();
+AlarmClock();
 
-	private:
-		int interval_segs;
+private:
+int interval_segs;
 };
 
 #endif

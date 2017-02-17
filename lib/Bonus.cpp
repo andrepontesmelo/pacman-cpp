@@ -2,5 +2,5 @@
 
 void Bonus::Initilize()
 {
-	CollisionDetection::Instance()->Add(this);
+								CollisionDetection::Instance()->Add(this);
 }

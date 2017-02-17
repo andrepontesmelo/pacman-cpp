@@ -6,17 +6,22 @@
 class Allegro
 {
 private:
-	Allegro() {}
-	static Allegro* instance;
-	int width, height;
+Allegro() {
+}
+static Allegro* instance;
+int width, height;
 
 public:
-	void Initialize(int width, int height);
-	void Finalize();
-	static Allegro* Instance();
-	int Width() { return width; }
-	int Height() { return height; }
-	void Wait(int time);
+void Initialize(int width, int height);
+void Finalize();
+static Allegro* Instance();
+int Width() {
+								return width;
+}
+int Height() {
+								return height;
+}
+void Wait(int time);
 };
 
 #endif

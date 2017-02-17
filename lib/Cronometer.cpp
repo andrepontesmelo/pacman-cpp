@@ -2,19 +2,19 @@
 
 void Cronometer::Start()
 {
-	gettimeofday(&start, 0);
+								gettimeofday(&start, 0);
 }
 
 void Cronometer::Refresh()
 {
-	gettimeofday(&end, 0);
+								gettimeofday(&end, 0);
 }
 
 int Cronometer::ReadMs()
 {
-	int read_ms = end.tv_usec - start.tv_usec;
+								int read_ms = end.tv_usec - start.tv_usec;
 
-	read_ms += (end.tv_sec - start.tv_sec) * ONE_MILION;
+								read_ms += (end.tv_sec - start.tv_sec) * ONE_MILION;
 
-	return read_ms;
+								return read_ms;
 }

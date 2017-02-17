@@ -7,7 +7,7 @@ class BonusSlowMotion : public Bonus
 {
 public:
 	BonusSlowMotion();
-	int Obter_time();
+	int Get_time();
 };
 
 #endif

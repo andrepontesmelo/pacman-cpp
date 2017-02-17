@@ -7,7 +7,7 @@
 class BonusLife : public Bonus
 {
 public:
-	BonusLife();
+BonusLife();
 };
 
 #endif

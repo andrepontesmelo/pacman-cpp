@@ -11,25 +11,29 @@ class WalkingElement : public DrawingElement
 {
 
 public:
-	WalkingElement();
-	WalkingElement(FixedDirection * direction);
-	virtual ~WalkingElement() {}
-	virtual void UpdatePosition(int elapsed_ms);
-	virtual void Draw();
-	Corner* NextCorner() { return next_corner; }
+WalkingElement();
+WalkingElement(FixedDirection * direction);
+virtual ~WalkingElement() {
+}
+virtual void UpdatePosition(int elapsed_ms);
+virtual void Draw();
+Corner* NextCorner() {
+								return next_corner;
+}
 
 protected:
-	FixedDirection *direction;
-	bool stopped;
-	Corner* next_corner; 
-	int acc_time;
-	virtual int Interval() = 0;
-	virtual FixedDirection* NextDirection() = 0;
-	virtual void Flip() {};
-	
+FixedDirection *direction;
+bool stopped;
+Corner* next_corner;
+int acc_time;
+virtual int Interval() = 0;
+virtual FixedDirection* NextDirection() = 0;
+virtual void Flip() {
+};
+
 private:
-	void Initilize();
-	void FindNextCorner();
-};		
+void Initilize();
+void FindNextCorner();
+};
 
 #endif

@@ -16,47 +16,50 @@
 
 class Ghost : public WalkingElement, public IGhost
 {
-	public:
-		Ghost(int jail_time);
-		FixedDirection* GetDirection();
-		void Draw() { WalkingElement::Draw(); }
-		virtual bool PacmanCanEat() { return pill_effect; }
-		virtual void AtePacman();
-		virtual void WasEaten();
-		void PillFinished();
-		void Reset();
-		void PillEaten();
-		void FinishingPill();
-		
-		// Observer design pattern
-		void virtual Refresh(int action);
-	
-	protected:
-		enum Action { ARRESTED, RELEASING, RELEASE, RETURNING, ENTERING};
-		enum Action action;
-		void UpdatePosition(int elapsed_ms);
-		GreedyFollower * jail_follower;
-		IDrawable *regular_drawing;
-		virtual int Interval();
-		bool pill_effect, blinking;
+public:
+Ghost(int jail_time);
+FixedDirection* GetDirection();
+void Draw() {
+								WalkingElement::Draw();
+}
+virtual bool PacmanCanEat() {
+								return pill_effect;
+}
+virtual void AtePacman();
+virtual void WasEaten();
+void PillFinished();
+void Reset();
+void PillEaten();
+void FinishingPill();
 
-	private:
-		bool GetPositionOutsideJail();
-		void PreparePrisioners();
-		void ExitJail();
-		void ForceJail();
-		int jail_time;
+void virtual Refresh(int action);
 
-		void LoadBitmaps();
+protected:
+enum Action { ARRESTED, RELEASING, RELEASE, RETURNING, ENTERING};
+enum Action action;
+void UpdatePosition(int elapsed_ms);
+GreedyFollower * jail_follower;
+IDrawable *regular_drawing;
+virtual int Interval();
+bool pill_effect, blinking;
 
-		Direction* random_direction; // Direction dentro da area central
-		Box * jail;
-		
-		Cronometer cronometer_jail;
+private:
+bool GetPositionOutsideJail();
+void PreparePrisioners();
+void ExitJail();
+void ForceJail();
+int jail_time;
 
-		IDrawable *bitmap_pill_efect;
-		IDrawable *bitmap_blink;
-		IDrawable *bitmap_eaten;
+void LoadBitmaps();
+
+Direction* random_direction;
+Box * jail;
+
+Cronometer cronometer_jail;
+
+IDrawable *bitmap_pill_efect;
+IDrawable *bitmap_blink;
+IDrawable *bitmap_eaten;
 };
 
 

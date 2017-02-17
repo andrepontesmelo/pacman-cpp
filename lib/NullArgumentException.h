@@ -3,10 +3,10 @@
 
 #include "Exception.h"
 
-class NullArgumentException: public Exception
+class NullArgumentException : public Exception
 {
-	public:
-		NullArgumentException(string argument, string method);
+public:
+NullArgumentException(string argument, string method);
 };
 
 #endif

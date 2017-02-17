@@ -14,60 +14,59 @@
 
 int main()
 {
-	Allegro * allegro = Allegro::Instance();
-	allegro->Initialize(SCREEN_WIDTH, SCREEN_HEIGHT);
+								Allegro * allegro = Allegro::Instance();
+								allegro->Initialize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-	Screen * screen = Screen::Instance();
-	Maze * maze =  Maze::Instance();
-	Pacman * pacman = new Pacman();
-	
-	LifeController * lifes = LifeController::Instance();
-	lifes->SetPacman(pacman);
-	GhostComposition * ghosts = GhostComposition::Instance();
-	ghosts->Generate_ghosts(pacman);
-	PillComposition::Instance()->Set_ghosts(ghosts);
+								Screen * screen = Screen::Instance();
+								Maze * maze =  Maze::Instance();
+								Pacman * pacman = new Pacman();
 
-	CollisionDetection * collisions = CollisionDetection::Instance();
-	collisions->SetPacman(pacman);
-	Keyboard *keyboard = Keyboard::Instance();
-	Cronometer cronometer;
-	int elapsed_time = 0;
-	
-	while (keyboard->GetKeyPressed() != Keyboard::ESC)
-	{
-		cronometer.Start();
-		keyboard->GetKeyPressed();
-		pacman->UpdatePosition(elapsed_time);
+								LifeController * lifes = LifeController::Instance();
+								lifes->SetPacman(pacman);
+								GhostComposition * ghosts = GhostComposition::Instance();
+								ghosts->Generate_ghosts(pacman);
+								PillComposition::Instance()->Set_ghosts(ghosts);
 
-		keyboard->GetKeyPressed();
-		ghosts->UpdatePosition(elapsed_time);
+								CollisionDetection * collisions = CollisionDetection::Instance();
+								collisions->SetPacman(pacman);
+								Keyboard *keyboard = Keyboard::Instance();
+								Cronometer cronometer;
+								int elapsed_time = 0;
 
-		keyboard->GetKeyPressed();
-		maze->Draw();
+								while (keyboard->GetKeyPressed() != Keyboard::ESC)
+								{
+																cronometer.Start();
+																keyboard->GetKeyPressed();
+																pacman->UpdatePosition(elapsed_time);
 
-		keyboard->GetKeyPressed();
-		ghosts->Draw();
+																keyboard->GetKeyPressed();
+																ghosts->UpdatePosition(elapsed_time);
 
-		keyboard->GetKeyPressed();
-		pacman->Draw();
+																keyboard->GetKeyPressed();
+																maze->Draw();
 
-		keyboard->GetKeyPressed();
-		lifes->Draw();
+																keyboard->GetKeyPressed();
+																ghosts->Draw();
 
-		screen->Refresh();
-		
-		keyboard->GetKeyPressed();				
-		
-		allegro->Wait(10);
+																keyboard->GetKeyPressed();
+																pacman->Draw();
 
-		collisions->Detect();
-		keyboard->GetKeyPressed();		
-		cronometer.Refresh();
-		elapsed_time = cronometer.ReadMs();
-	}
+																keyboard->GetKeyPressed();
+																lifes->Draw();
 
-	allegro->Finalize();
-	return 0;
+																screen->Refresh();
+
+																keyboard->GetKeyPressed();
+
+																allegro->Wait(10);
+
+																collisions->Detect();
+																keyboard->GetKeyPressed();
+																cronometer.Refresh();
+																elapsed_time = cronometer.ReadMs();
+								}
+
+								allegro->Finalize();
+								return 0;
 }
 END_OF_MAIN();
-

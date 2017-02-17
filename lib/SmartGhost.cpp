@@ -1,1 +1,0 @@
-#include "SmartGhost.h"

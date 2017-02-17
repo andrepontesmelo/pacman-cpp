@@ -8,14 +8,19 @@
 class Bonus : public DrawingElement, public IObserver
 {
 public:
-	Bonus() : DrawingElement() { Initilize(); }
-	void Place();
-	int GetVisibleTime();
-	int GetHiddenTime();
-	void Refresh(int action) {}	
-	virtual bool PacmanCanEat() { return true; }
+Bonus() : DrawingElement() {
+								Initilize();
+}
+void Place();
+int GetVisibleTime();
+int GetHiddenTime();
+void Refresh(int action) {
+}
+virtual bool PacmanCanEat() {
+								return true;
+}
 protected:
-	void Initilize();
+void Initilize();
 };
 
 #endif

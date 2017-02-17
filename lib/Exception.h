@@ -7,12 +7,12 @@ using std::string;
 using std::cout;
 class Exception
 {
-	public:
-		Exception(string msg);
-		string Msg();
+public:
+Exception(string msg);
+string Msg();
 
-	protected:
-		string msg;
-		
+protected:
+string msg;
+
 };
 #endif

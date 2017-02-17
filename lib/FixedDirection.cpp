@@ -9,47 +9,47 @@ bool FixedDirection::opposits_settled = false;
 
 FixedDirection* FixedDirection::GetByCode(int cod)
 {
-	switch (cod)
-	{
-		case TOP:
-			return top;
-		break;
-		case BOTTOM:
-			return bottom;
-		break;
-		case LEFT:
-			return left;
-		break;
-		case RIGHT:
-			return right;
-		break;
-		default:
-			stringstream msg;			
-			msg << "Invalid code in FixedDirection::GetByCode(int cod), cod=" << cod;
+								switch (cod)
+								{
+								case TOP:
+																return top;
+																break;
+								case BOTTOM:
+																return bottom;
+																break;
+								case LEFT:
+																return left;
+																break;
+								case RIGHT:
+																return right;
+																break;
+								default:
+																stringstream msg;
+																msg << "Invalid code in FixedDirection::GetByCode(int cod), cod=" << cod;
 
-			throw new Exception(msg.str());
-	}
+																throw new Exception(msg.str());
+								}
 }
 
-FixedDirection* FixedDirection::Opposit()
+FixedDirection* FixedDirection::Opposite()
 {
-	if (!opposits_settled)
-		SetOpposit();
+								if (!opposits_settled)
+																SetOpposite();
 
 #ifdef DEBUG
-	if (opposit == 0)
-		throw new NullReferenceException("opposit", "FixedDirection::Opposit()");
+								if (opposit == 0)
+																throw new NullReferenceException("opposite", "FixedDirection::Opposite()");
 #endif
 
-	return opposit;
+								return opposit;
 }
 
-void FixedDirection::SetOpposit()
+void FixedDirection::SetOpposite()
 {
-	top->SetOpposit(bottom);
-	bottom->SetOpposit(top);
-	left->SetOpposit(right);
-	right->SetOpposit(left);
+								top->SetOpposite(bottom);
+								bottom->SetOpposite(top);
+								left->SetOpposite(right);
+								right->SetOpposite(left);
 
-	opposits_settled = true;
+								opposits_settled = true;
 }

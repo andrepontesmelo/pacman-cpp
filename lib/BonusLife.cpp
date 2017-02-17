@@ -2,6 +2,6 @@
 
 BonusLife::BonusLife()
 {
-	drawing = new Bitmap("../img/bonus_life.bmp");
-	drawing->SetCentered(true);
+								drawing = new Bitmap("../img/bonus_life.bmp");
+								drawing->SetCentered(true);
 }

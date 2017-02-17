@@ -2,56 +2,54 @@
 
 FoodComposition::FoodComposition()
 {
-	foods_restantes = 0;
-	Reconstruction::Instance()->AddObserver(this);
+								remaining_food = 0;
+								Reconstruction::Instance()->AddObserver(this);
 }
 
 void FoodComposition::Add(Food* food)
 {
-	foods.push_back(food);
-	food->AddObserver(this);
-	foods_restantes++;
+								foods.push_back(food);
+								food->AddObserver(this);
+								remaining_food++;
 }
 
 void FoodComposition::Draw()
 {
-	vector<Food*>::iterator iterador = foods.begin();
+								vector<Food*>::iterator iterador = foods.begin();
 
-	for (; iterador < foods.end(); iterador++)
-		(*iterador)->Draw();
+								for (; iterador < foods.end(); iterador++)
+																(*iterador)->Draw();
 }
 
 void FoodComposition::Refresh(int action)
 {
-	switch (action)
-	{
-		case Reconstruction::NEW_PHASE:
-			Reset();
-		break;
-			
-		case Reconstruction::PACMAN_DIED:
-		break;
+								switch (action)
+								{
+								case Reconstruction::NEW_PHASE:
+																Reset();
+																break;
 
-		case Reconstruction::FOOD_EATEN:
-			foods_restantes--;
+								case Reconstruction::PACMAN_DIED:
+																break;
 
-			if (foods_restantes == 0)
-			{
-				// Passou de fase!
-				Allegro::Instance()->Wait(3000);
-				Reconstruction::Instance()->NewPhase();
-			}
-		break;		
-	}
+								case Reconstruction::FOOD_EATEN:
+																remaining_food--;
+
+																if (remaining_food == 0)
+																{
+																								Allegro::Instance()->Wait(3000);
+																								Reconstruction::Instance()->NewPhase();
+																}
+																break;
+								}
 }
 
-/* Volta com as foods */
 void FoodComposition::Reset()
 {
-	vector<Food*>::iterator iterador = foods.begin();
+								vector<Food*>::iterator iterador = foods.begin();
 
-	for (; iterador < foods.end(); iterador++)
-		(*iterador)->Reset();
+								for (; iterador < foods.end(); iterador++)
+																(*iterador)->Reset();
 
-	foods_restantes = foods.size();
+								remaining_food = foods.size();
 }

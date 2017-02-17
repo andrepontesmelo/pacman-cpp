@@ -10,24 +10,28 @@
 class CollisionDetection
 {
 public:
-	void Detect();
-	void Add(ICollidable *object);
-	static CollisionDetection* Instance();
-	void SetPacman(ICollidable *p) { pacman = p; }
-	void Reset();
+void Detect();
+void Add(ICollidable *object);
+static CollisionDetection* Instance();
+void SetPacman(ICollidable *p) {
+								pacman = p;
+}
+void Reset();
 
 private:
-	CollisionDetection() 
-	{ last_pacman_position = 0; largest_position = new Position(); }
+CollisionDetection()
+{
+								last_pacman_position = 0; largest_position = new Position();
+}
 
-	std::vector<ICollidable*> collidables;
-	bool DetectCollision(ICollidable*);
-	ICollidable * pacman;
-	static CollisionDetection *instance;
-	Position * last_pacman_position;
-	
-	int largest_width, largest_height;
-	Position * largest_position;
+std::vector<ICollidable*> collidables;
+bool DetectCollision(ICollidable*);
+ICollidable * pacman;
+static CollisionDetection *instance;
+Position * last_pacman_position;
+
+int largest_width, largest_height;
+Position * largest_position;
 };
 
 #endif

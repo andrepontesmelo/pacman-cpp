@@ -4,12 +4,10 @@
 
 #include "Exception.h"
 
-class NullReferenceException: public Exception
+class NullReferenceException : public Exception
 {
 public:
-	NullReferenceException(string variable, string method);
+NullReferenceException(string variable, string method);
 };
 
 #endif
-
-

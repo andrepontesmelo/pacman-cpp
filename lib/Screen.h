@@ -7,21 +7,21 @@
 
 class Screen
 {
-	public:
-		static Screen* Instance();
-		int Width();
-		int Height();
-		void Draw(BITMAP * bitmap, int x, int y);
-		void DrawText(string text, int x, int y, Color * color, bool centered);
+public:
+static Screen* Instance();
+int Width();
+int Height();
+void Draw(BITMAP * bitmap, int x, int y);
+void DrawText(string text, int x, int y, Color * color, bool centered);
 
-		void Refresh();
+void Refresh();
 
-	private:
-		Screen(int width, int height);
-		static Screen* instance;
-		BITMAP* buffer;
-		int width;
-		int height;
-};	
+private:
+Screen(int width, int height);
+static Screen* instance;
+BITMAP* buffer;
+int width;
+int height;
+};
 
 #endif

@@ -10,7 +10,6 @@
 #include "DrawingElement.h"
 #include "Box.h"
 
-// Exceptions
 #include "FileNotFoundException.h"
 #include "NullArgumentException.h"
 #include "Exception.h"
@@ -27,28 +26,28 @@ using std::stringstream;
 
 class Maze : public DrawingElement
 {
-	private:
-		static Maze* instance;
-		Bitmap * bitmap;
-		Maze();
-		void LoadMaze();
-		CornerCollection *  corners;
-		void RegisterCorner(Corner *corner, Corner *itsLeft);
-		void Generate_foods(Corner *a, Corner *b);
+private:
+static Maze* instance;
+Bitmap * bitmap;
+Maze();
+void LoadMaze();
+CornerCollection *  corners;
+void RegisterCorner(Corner *corner, Corner *itsLeft);
+void Generate_foods(Corner *a, Corner *b);
 
-		FoodComposition * foods;
+FoodComposition * foods;
 
-		Corner * corner_start_pacman;
-		Corner * corner_start_ghost;
-		Box * jail;
+Corner * corner_start_pacman;
+Corner * corner_start_ghost;
+Box * jail;
 
-	public:
-		static Maze * Instance();
-		void Draw();
-		Corner * Corner_start_pacman();
-		Corner * GetInitialGhostCorner();
-		
-		Box * GetJail();
+public:
+static Maze * Instance();
+void Draw();
+Corner * Corner_start_pacman();
+Corner * GetInitialGhostCorner();
+
+Box * GetJail();
 };
 
 #endif

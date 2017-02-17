@@ -7,14 +7,14 @@ using std::vector;
 class Subject
 {
 public:
-	void AddObserver(IObserver *o);
-	void RemoverObserver(IObserver *o);
-	
+void AddObserver(IObserver *o);
+void RemoverObserver(IObserver *o);
+
 protected:
-	void Notify(int action);
-	
+void Notify(int action);
+
 private:
-	vector<IObserver*> observers;
+vector<IObserver*> observers;
 };
 
 #endif

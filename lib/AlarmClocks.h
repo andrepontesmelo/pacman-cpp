@@ -3,17 +3,17 @@
 #include "IObserver.h"
 #include "AlarmClock.h"
 
-#define DESPERTADORES_H
+#define ALARM_CLOCKS_H
 
 class AlarmClocks
 {
 public:
-	AlarmClocks * GetInstance();
-	AlarmClock* AddAlarmClock(int interval, IObserver *object);
-	void Verify();
+AlarmClocks * GetInstance();
+AlarmClock* AddAlarmClock(int interval, IObserver *object);
+void Verify();
 
 private:
-	AlarmClocks();
+AlarmClocks();
 };
 
 #endif

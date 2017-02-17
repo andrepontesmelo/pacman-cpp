@@ -14,18 +14,25 @@ class Food;
 class Food : public DrawingElement, public Subject
 {
 private:
-	Position * position;
-	Bitmap * CreateBitmap(Position * position);
-	void Initilize(Position * position);
+Position * position;
+Bitmap * CreateBitmap(Position * position);
+void Initilize(Position * position);
 
 public:
-	Food(Position * position);
-	Food(int x, int y);
-	virtual ~Food(){}
-	Position * GetPosition() { return position; }
-	virtual bool PacmanCanEat() { return true; }
-	virtual void WasEaten();
-	void Reset() { visible = true; }
+Food(Position * position);
+Food(int x, int y);
+virtual ~Food(){
+}
+Position * GetPosition() {
+								return position;
+}
+virtual bool PacmanCanEat() {
+								return true;
+}
+virtual void WasEaten();
+void Reset() {
+								visible = true;
+}
 };
 
 #endif

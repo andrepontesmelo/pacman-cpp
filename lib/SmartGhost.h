@@ -1,16 +1,16 @@
 
 #ifndef SMART_GHOST_H
-#define SMART_GHOST_H 
+#define SMART_GHOST_H
 
 #include "Ghost.h"
 
 class SmartGhost : public Ghost
 {
 public:
-	SmartGhost();
+SmartGhost();
 protected:
-	void UpdateDirectionVector();
-	
+void UpdateDirectionVector();
+
 };
 
-#endif	
+#endif

@@ -15,37 +15,46 @@
 class Bitmap : public IDrawable
 {
 private:
-	BITMAP *bmp;
-	Position *position;
-	int width, height;
-	bool centered;
-	Screen * instance_screen;
-	void Initialize(BITMAP * bitmap, Position * pos);
-	
+BITMAP *bmp;
+Position *position;
+int width, height;
+bool centered;
+Screen * instance_screen;
+void Initialize(BITMAP * bitmap, Position * pos);
+
 public:
 
-		// Properties
-	int Width() { return width; }
-	int Height()  { return height; }
-	void SetPosition(int x, int y);
-	Position * GetPosition() { return position; }
-	void SetCentered(bool c) { centered = c; }
-	bool Visible() { return true; }
-	Bitmap(string file, int x = 0, int y = 0);
-	
-		// Empty bitmap
-	Bitmap(int width, int height, int x = 0, int y = 0);
+int Width() {
+								return width;
+}
+int Height()  {
+								return height;
+}
+void SetPosition(int x, int y);
+Position * GetPosition() {
+								return position;
+}
+void SetCentered(bool c) {
+								centered = c;
+}
+bool Visible() {
+								return true;
+}
+Bitmap(string file, int x = 0, int y = 0);
 
-	virtual ~Bitmap();
+Bitmap(int width, int height, int x = 0, int y = 0);
 
-	void Collided(IDrawable * other);
-	BITMAP* Bmp() { return bmp; }
-	void Clean();
-	void DrawFilledCircle(int x, int y, int radius, Color * color);
-	void DrawLine(int x, int y, int x1, int y1, Color * color);
-	void Draw();
-	
+virtual ~Bitmap();
+
+void Collided(IDrawable * other);
+BITMAP* Bmp() {
+								return bmp;
+}
+void Clean();
+void DrawFilledCircle(int x, int y, int radius, Color * color);
+void DrawLine(int x, int y, int x1, int y1, Color * color);
+void Draw();
+
 };
 
 #endif
-

@@ -6,12 +6,12 @@
 
 class Smart
 {
-	private:
-		Smart* instance;
-		void CreateHash();
-	public:
-		Smart * GetInstance();
-		FixedDirection * GetDirection(Position *p);
+private:
+Smart* instance;
+void CreateHash();
+public:
+Smart * GetInstance();
+FixedDirection * GetDirection(Position *p);
 };
 
 #endif

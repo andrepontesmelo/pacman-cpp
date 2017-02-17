@@ -19,28 +19,30 @@ using std::vector;
 class GhostComposition : public IGhost
 {
 public:
-	void SwitchMode(enum Mode novo_modo) {}
-	void UpdatePosition(int time);
-	void Draw();
-	void PillEaten();
-	void Generate_ghosts(Pacman * pacman);
-	static GhostComposition * Instance();
-	void FinishingPill(){}
-	void PillFinished(){}
-	void Refresh(int action);
+void SwitchMode(enum Mode new_mode) {
+}
+void UpdatePosition(int time);
+void Draw();
+void PillEaten();
+void Generate_ghosts(Pacman * pacman);
+static GhostComposition * Instance();
+void FinishingPill(){
+}
+void PillFinished(){
+}
+void Refresh(int action);
 
 private:
-	vector<IGhost*> ghosts;
+vector<IGhost*> ghosts;
 
-	static GhostComposition * instance;
-	GhostComposition();
-	Position * pos_pacman;
+static GhostComposition * instance;
+GhostComposition();
+Position * pos_pacman;
 
-	Cronometer pill_effect;
-	Cronometer end_pill;
-	enum EstagioPill { DISABLED, ACTIVATED, FINISHING };
-	enum EstagioPill pill_stage;
+Cronometer pill_effect;
+Cronometer end_pill;
+enum PillStage { DISABLED, ACTIVATED, FINISHING };
+enum PillStage pill_stage;
 };
 
 #endif
-

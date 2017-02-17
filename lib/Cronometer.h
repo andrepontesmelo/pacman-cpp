@@ -6,12 +6,13 @@
 class Cronometer
 {
 public:
-	Cronometer() {}
-	void Start();
-	void Refresh();
-	int ReadMs();
+Cronometer() {
+}
+void Start();
+void Refresh();
+int ReadMs();
 private:
-	struct timeval start, end;
+struct timeval start, end;
 
 };
 #endif

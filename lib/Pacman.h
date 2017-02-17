@@ -12,27 +12,34 @@ class Pacman;
 
 class Pacman : public WalkingElement, public IObserver
 {
-	private:
-		int lifes;
-		FixedDirection * next_direction;
+private:
+int lifes;
+FixedDirection * next_direction;
 
-		IDrawable* flipped_drawings[4];
-		void LoadBitmaps();
-		void Initilize();
+IDrawable* flipped_drawings[4];
+void LoadBitmaps();
+void Initilize();
 
-	protected:
-		virtual FixedDirection* NextDirection() { return next_direction; }
-		virtual void Flip();
-		virtual int Interval() { return PACMAN_INTERVAL; }
+protected:
+virtual FixedDirection* NextDirection() {
+								return next_direction;
+}
+virtual void Flip();
+virtual int Interval() {
+								return PACMAN_INTERVAL;
+}
 
-	public:
-		Pacman();
-		~Pacman() {};
-		void virtual UpdatePosition(int elapsed_ms);
-		void virtual Draw();
-		int LifeQty() { return lifes; }
-		void virtual WasEaten();
-		void virtual Refresh(int action);
+public:
+Pacman();
+~Pacman() {
+};
+void virtual UpdatePosition(int elapsed_ms);
+void virtual Draw();
+int LifeQty() {
+								return lifes;
+}
+void virtual WasEaten();
+void virtual Refresh(int action);
 
 };
 #endif

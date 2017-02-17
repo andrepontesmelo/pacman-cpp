@@ -4,8 +4,9 @@
 class IObserver
 {
 public:
-	void virtual Refresh(int action) = 0;
-	virtual ~IObserver() {}
+void virtual Refresh(int action) = 0;
+virtual ~IObserver() {
+}
 };
 
 #endif

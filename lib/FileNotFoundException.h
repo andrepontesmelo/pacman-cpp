@@ -5,8 +5,8 @@
 
 class FileNotFoundException : public Exception
 {
-	public:
-		FileNotFoundException(string file);
+public:
+FileNotFoundException(string file);
 };
 
 #endif

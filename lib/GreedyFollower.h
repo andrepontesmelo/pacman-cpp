@@ -9,11 +9,11 @@
 
 class GreedyFollower : public Approximator
 {
-	
+
 public:
-	GreedyFollower(Position * target, WalkingElement *follower);
-	virtual FixedDirection * FollowingDirection();
-	
+GreedyFollower(Position * target, WalkingElement *follower);
+virtual FixedDirection * FollowingDirection();
+
 };
 
 #endif

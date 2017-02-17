@@ -9,16 +9,16 @@
 
 class GreedyGhost : public Ghost
 {
-	protected:
-		FixedDirection * NextDirection();
+protected:
+FixedDirection * NextDirection();
 
-	public:
-		GreedyGhost(int jail_time, Position * pos_pacman);
+public:
+GreedyGhost(int jail_time, Position * pos_pacman);
 
-	private:
-		GreedyFollower * pacman_follower;
-		static int ghosts_created;
-		static string GetAlternatedName();
+private:
+GreedyFollower * pacman_follower;
+static int ghosts_created;
+static string GetAlternatedName();
 };
 
 #endif

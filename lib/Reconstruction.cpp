@@ -8,24 +8,24 @@ Reconstruction::Reconstruction()
 
 Reconstruction* Reconstruction::Instance()
 {
-	if (instance == 0)
-		instance = new Reconstruction();
+								if (instance == 0)
+																instance = new Reconstruction();
 
-	return instance;
+								return instance;
 }
 
 
 void Reconstruction::PacmanDied()
 {
-	Notify(PACMAN_DIED);
+								Notify(PACMAN_DIED);
 }
 
 void Reconstruction::NewPhase()
 {
-	Notify(NEW_PHASE);
+								Notify(NEW_PHASE);
 }
 
 void Reconstruction::FoodEaten()
 {
-	Notify(FOOD_EATEN);
+								Notify(FOOD_EATEN);
 }

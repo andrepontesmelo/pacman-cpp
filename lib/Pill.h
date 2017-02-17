@@ -9,15 +9,17 @@
 
 class Pill : public Bonus
 {
-	public:
-		Pill(int x, int y);
-		virtual void WasEaten();
-		void Set_ghosts(IGhost * ghosts) { this->ghosts = ghosts; }
-		void Refresh(int action);
+public:
+Pill(int x, int y);
+virtual void WasEaten();
+void Set_ghosts(IGhost * ghosts) {
+								this->ghosts = ghosts;
+}
+void Refresh(int action);
 
-	private:
-		IGhost * ghosts;
-		Animation * Construir_animation(int x, int y);
+private:
+IGhost * ghosts;
+Animation * Build_animation(int x, int y);
 
 };
 

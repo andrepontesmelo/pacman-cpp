@@ -7,16 +7,16 @@
 
 class RandomGhost : public Ghost
 {
-	public:
-		RandomGhost(int jail_time);
-		
-	protected:
-		void UpdateDirectionVector();
-		FixedDirection* NextDirection();
+public:
+RandomGhost(int jail_time);
 
-	private:
-		static int ghosts_created;
-		static string GetAlternatedName();
+protected:
+void UpdateDirectionVector();
+FixedDirection* NextDirection();
+
+private:
+static int ghosts_created;
+static string GetAlternatedName();
 };
 
 #endif

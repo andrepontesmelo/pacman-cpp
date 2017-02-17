@@ -9,14 +9,14 @@ using std::cout;
 class Keyboard : public Subject
 {
 public:
-	enum Tecla {ESC, LEFT, RIGHT, TOP, BOTTOM, NOTHING};
-	enum Tecla GetKeyPressed();
-	static Keyboard * Instance();
-	void Pause();			
+enum Key {ESC, LEFT, RIGHT, TOP, BOTTOM, NOTHING};
+enum Key GetKeyPressed();
+static Keyboard * Instance();
+void Pause();
 private:
-	Keyboard();
-	static Keyboard* instance;
-	enum Tecla last_key;
+Keyboard();
+static Keyboard* instance;
+enum Key last_key;
 };
 
 #endif
